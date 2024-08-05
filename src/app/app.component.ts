@@ -7,10 +7,10 @@ import { ProductDetailsComponent } from './product-details/product-details.compo
 export interface IProducts {
   name: string;
   product_url: string;
-  price: string;
+  price: number;
   product_description: string;
   quantity: string;
-  id: string;
+  id: number;
 }
 
 @Component({

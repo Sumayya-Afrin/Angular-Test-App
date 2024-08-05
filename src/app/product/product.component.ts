@@ -1,4 +1,4 @@
-import { Component, Input } from '@angular/core';
+import { Component, Input, Output, EventEmitter } from '@angular/core';
 import { MatButtonModule } from '@angular/material/button';
 import { MatIconModule } from '@angular/material/icon';
 import { RouterLink } from '@angular/router';
@@ -7,7 +7,7 @@ import { MatBadgeModule } from '@angular/material/badge';
 import { IProducts } from '../app.component';
 import { ProductService } from '../product.service';
 import { AppComponent } from '../app.component';
-import { CartService } from '../cart.service';
+import { ActivatedRoute, Router } from '@angular/router';
 
 @Component({
   selector: 'app-product',
@@ -18,13 +18,20 @@ import { CartService } from '../cart.service';
     RouterLink,
     MatCardModule,
     MatBadgeModule,
+    RouterLink,
   ],
   templateUrl: './product.component.html',
   styleUrl: './product.component.scss',
 })
 export class ProductComponent {
+  constructor(
+    public productService: ProductService,
+    private route: ActivatedRoute,
+    public router: Router
+  ) {}
+  @Output() addItemEvent: EventEmitter<any> = new EventEmitter<any>();
+
   @Input() products!: IProducts;
-  constructor(private cartService: CartService) {}
 
   isLoading: boolean = true;
   msg = '';
@@ -35,7 +42,9 @@ export class ProductComponent {
     this.show = this.show ? false : true;
   }
 
-  AddingToCart() {
-    this.cartService.addToCart(this.products);
+  addToCart() {
+    console.log('clicking');
+    this.productService.addCart(this.products);
+    console.log('navigate');
   }
 }

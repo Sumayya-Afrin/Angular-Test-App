@@ -5,7 +5,8 @@ import { IProducts } from './app.component';
   providedIn: 'root',
 })
 export class ProductService {
-  private cart: IProducts[] = [];
+  private cart: Array<{ product: IProducts; quantity: number }> = [];
+
   constructor() {}
 
   getProductsIdP(id: string): Promise<IProducts> {
@@ -20,15 +21,22 @@ export class ProductService {
     );
   }
 
-  addToCart(product: IProducts): void {
-    this.cart.push(product);
+  addCart(product: IProducts) {
+    console.log('adding');
+    const item = this.cart.find((p) => product.id === product.id);
+    if (item) {
+      item.quantity += 1;
+    } else {
+      this.cart.push({ product, quantity: 1 });
+    }
   }
 
-  getCartItems(): IProducts[] {
+  getCartItems(): Array<{ product: IProducts; quantity: number }> {
     return this.cart;
   }
 
-  getCartTotal(): number {
-    return this.cart.reduce((total, item) => total + parseFloat(item.price), 0);
-  }
+  // Remove a product from the cart
+  // removeItem(productId: string) {
+  //   this.cart = this.cart.filter((item) => item.product.id !== productId);
+  // }
 }
