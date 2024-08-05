@@ -29,14 +29,16 @@ export class ProductService {
     } else {
       this.cart.push({ product, quantity: 1 });
     }
+    console.log(this.cart);
   }
 
   getCartItems(): Array<{ product: IProducts; quantity: number }> {
+    console.log('getting cart items');
+    console.log(this.cart);
     return this.cart;
   }
 
-  // Remove a product from the cart
-  // removeItem(productId: string) {
-  //   this.cart = this.cart.filter((item) => item.product.id !== productId);
-  // }
+  removeItem(productId: number) {
+    this.cart = this.cart.filter((item) => item.product.id !== productId);
+  }
 }

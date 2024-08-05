@@ -13,14 +13,18 @@ import { CurrencyPipe } from '@angular/common';
   templateUrl: './cart.component.html',
   styleUrl: './cart.component.scss',
 })
-export class CartComponent implements OnInit {
+export class CartComponent {
+  removeItem(arg0: any) {
+    throw new Error('Method not implemented.');
+  }
   cartItems: Array<{ product: IProducts; quantity: number }> = [];
   total: number = 0;
 
   constructor(private productService: ProductService) {}
 
-  ngOnInit(): void {
+  ngOnInit() {
     this.cartItems = this.productService.getCartItems();
+    console.log('calling');
     this.calculateTotal();
   }
 

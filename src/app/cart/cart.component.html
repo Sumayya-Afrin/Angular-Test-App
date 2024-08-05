@@ -1,7 +1,9 @@
 <section class="cart-container">
   <h1>Your Cart</h1>
-  <div *ngIf="cartItems.length > 0; else emptyCart">
-    <div *ngFor="let item of cartItems">
+  <div>
+    @if(cartItems.length > 0){
+    <div>
+      @for(item of cartItems ; track $index){
       <div class="cart-item">
         <h2>{{ item.product.name }} ({{ item.quantity }})</h2>
         <p>
@@ -9,14 +11,16 @@
             item.product.price * item.quantity
           }}
         </p>
-        <!-- <button (click)="removeItem(item.product.id)">Remove</button> -->
+        <button (click)="removeItem(item.product.id)">Remove</button>
       </div>
+      }
     </div>
     <div class="cart-total">
       <h2>Total: ${{ total }}</h2>
     </div>
+    }
   </div>
-  <ng-template #emptyCart>
+  <div>
     <h2>Your cart is empty</h2>
-  </ng-template>
+  </div>
 </section>
