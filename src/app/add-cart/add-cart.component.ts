@@ -1,20 +1,24 @@
-import { Component, Input } from '@angular/core';
+import { Component, Input, OnInit } from '@angular/core';
 import { IProducts } from '../app.component';
 import { ProductService } from '../product.service';
+import { CartService } from '../cart.service';
+import { DatePipe } from '@angular/common';
 
 @Component({
   selector: 'app-add-cart',
   standalone: true,
-  imports: [],
+  imports: [DatePipe],
   templateUrl: './add-cart.component.html',
   styleUrl: './add-cart.component.scss',
 })
-export class AddCartComponent {
-  @Input() product!: IProducts;
+export class AddCartComponent implements OnInit {
+  cartItems: IProducts[] = [];
+  cartTotal: number = 0;
 
-  constructor(private productservice: ProductService) {}
+  constructor(private cartService: CartService) {}
 
-  addToCart() {
-    //this.productservice.addToCart(this.product);
+  ngOnInit(): void {
+    this.cartItems = this.cartService.getCartItems();
+    this.cartTotal = this.cartService.getCartTotal();
   }
 }

@@ -1,1 +1,14 @@
-<p>add-cart works!</p>
+<div class="cart-container">
+  <h1>Shopping Cart</h1>
+  <div>
+    @if(cartItems.length === 0) {
+    <p>Your cart is empty!</p>
+    }
+  </div>
+  <div>
+    @for (item of cartItems; track $index) {
+    <p>{{ item.name }} - {{ item.price }}</p>
+    }
+  </div>
+  <h2>Total: {{ cartTotal | currency }}</h2>
+</div>

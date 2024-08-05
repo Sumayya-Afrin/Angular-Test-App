@@ -7,6 +7,7 @@ import { MatBadgeModule } from '@angular/material/badge';
 import { IProducts } from '../app.component';
 import { ProductService } from '../product.service';
 import { AppComponent } from '../app.component';
+import { CartService } from '../cart.service';
 
 @Component({
   selector: 'app-product',
@@ -22,14 +23,8 @@ import { AppComponent } from '../app.component';
   styleUrl: './product.component.scss',
 })
 export class ProductComponent {
-  // @Input() products = {
-  // id: 1,
-  //   name: 'Wireless Mouse',
-  //   product_url: 'https://example.com/product1',
-  //   price: 19.99,
-  //   product_description: 'A high-quality wireless mouse with ergonomic design.',
-  // };
   @Input() products!: IProducts;
+  constructor(private cartService: CartService) {}
 
   isLoading: boolean = true;
   msg = '';
@@ -40,5 +35,7 @@ export class ProductComponent {
     this.show = this.show ? false : true;
   }
 
-  AddingToCart() {}
+  AddingToCart() {
+    this.cartService.addToCart(this.products);
+  }
 }
