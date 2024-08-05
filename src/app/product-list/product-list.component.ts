@@ -1,16 +1,17 @@
 import { Component } from '@angular/core';
 import { IProducts } from '../app.component';
 import { ProductService } from '../product.service';
+import { ProductComponent } from '../product/product.component';
 
 @Component({
   selector: 'app-product-list',
   standalone: true,
-  imports: [],
+  imports: [ProductComponent],
   templateUrl: './product-list.component.html',
   styleUrl: './product-list.component.scss',
 })
 export class ProductListComponent {
-  productList: Array<IProducts> = []; // Model -> View
+  productList: any; // Model -> View
   isLoading: boolean = true;
   msg = '';
   constructor(public productService: ProductService) {}

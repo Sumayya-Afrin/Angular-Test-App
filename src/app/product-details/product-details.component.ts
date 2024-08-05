@@ -19,12 +19,11 @@ export class ProductDetailsComponent {
 
   constructor(
     private productService: ProductService,
-    private route: ActivatedRoute,
-    private sanitizer: DomSanitizer
+    private route: ActivatedRoute
   ) {}
 
   ngOnInit() {
-    let id = this.route.snapshot.paramMap.get('id') as string; // From URL
+    let id = this.route.snapshot.paramMap.get('id') as string;
 
     this.productService
       .getProductsIdP(id)

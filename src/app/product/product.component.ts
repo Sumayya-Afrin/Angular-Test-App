@@ -30,4 +30,6 @@ export class ProductComponent {
   showDescription() {
     this.show = this.show ? false : true;
   }
+
+  AddingToCart() {}
 }
