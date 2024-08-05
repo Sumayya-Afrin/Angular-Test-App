@@ -1,0 +1,38 @@
+<mat-card class="movie-container">
+  <img
+    src="{{ products.imageurl }}"
+    alt="{{ products.name }}-product-image"
+    class="movie-poster"
+  />
+  <mat-card-content>
+    <div class="product-spec">
+      <h2 class="product-title">
+        {{ products.name }}
+        <button
+          mat-icon-button
+          aria-label="Toggle Summary"
+          (click)="showDescription()"
+        >
+          <mat-icon>{{
+            show ? "keyboard_arrow_up" : "keyboard_arrow_down"
+          }}</mat-icon>
+        </button>
+        <!-- <p class="movie-rating">⭐{{ movie.rating }}</p> -->
+
+        <button
+          mat-icon-button
+          aria-label="Details of movie"
+          routerLink="/products/{{ products.id }}"
+        >
+          <mat-icon>info</mat-icon>
+        </button>
+      </h2>
+    </div>
+
+    @if(show) {
+    <p class="product-summary">
+      {{ products.description }}
+    </p>
+    }
+  </mat-card-content>
+</mat-card>
