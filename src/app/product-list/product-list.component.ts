@@ -24,6 +24,7 @@ export class ProductListComponent {
     this.productService
       .getAllProducts()
       .then((data) => {
+        console.log('Fetched products:', data); // Add this line
         this.productList = data;
         this.isLoading = false;
       })

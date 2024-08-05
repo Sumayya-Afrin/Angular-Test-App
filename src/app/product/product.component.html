@@ -1,12 +1,12 @@
-<mat-card class="movie-container">
+<mat-card class="product-container">
   <img
     src="{{ products.product_url }}"
     alt="{{ products.name }}-product-image"
-    class="movie-poster"
+    class="product-poster"
   />
   <mat-card-content>
     <div class="product-spec">
-      <h2 class="product-title">
+      <h1 class="product-title">
         {{ products.name }}
         <button
           mat-icon-button
@@ -20,12 +20,12 @@
 
         <button
           mat-icon-button
-          aria-label="Details of movie"
+          aria-label="Details of product"
           routerLink="/products/{{ products.id }}"
         >
           <mat-icon>info</mat-icon>
         </button>
-      </h2>
+      </h1>
     </div>
 
     @if(show) {
@@ -36,7 +36,7 @@
 
     <h2>{{ products.price }}</h2>
     <button mat-button routerLink="/products/cart" (click)="AddingToCart()">
-      ➕Add Cart
+      ➕Cart
     </button>
   </mat-card-content>
 </mat-card>

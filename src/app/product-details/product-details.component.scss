@@ -1,0 +1,30 @@
+
+.product-container{
+    overflow: hidden;
+    width: 300px;
+}
+.product-spec{
+    display: flex;
+    justify-content: space-between;
+    align-items: center ;  
+}
+.product-poster{
+    height: 450px;
+    width: 100%;
+   object-fit: cover;
+}
+
+ 
+.product-rating  {
+  font-size: 20px;
+
+}
+
+.product-title{
+  font-size: 25px;
+  font-weight: bold;
+}
+
+.product-rating , .product-title {
+  margin: 6px 0px;
+}
