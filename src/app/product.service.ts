@@ -23,7 +23,7 @@ export class ProductService {
 
   addCart(product: IProducts) {
     console.log('adding');
-    const item = this.cart.find((p) => product.id === product.id);
+    const item = this.cart.find((p) => p.product.id === product.id);
     if (item) {
       item.quantity += 1;
     } else {

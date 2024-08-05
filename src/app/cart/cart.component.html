@@ -5,9 +5,14 @@
     <div>
       @for(item of cartItems ; track $index){
       <div class="cart-item">
+        <img
+          src="{{ item.product.product_url }}"
+          alt="{{ item.product.name }}"
+          class="product-image"
+        />
         <h2>{{ item.product.name }} ({{ item.quantity }})</h2>
         <p>
-          ${{ item.product.price }} x {{ item.quantity }} = ${{
+          {{ item.product.price }} x {{ item.quantity }} = ${{
             item.product.price * item.quantity
           }}
         </p>
@@ -18,9 +23,10 @@
     <div class="cart-total">
       <h2>Total: ${{ total }}</h2>
     </div>
+    } @else {
+    <div>
+      <h2>Your cart is empty</h2>
+    </div>
     }
-  </div>
-  <div>
-    <h2>Your cart is empty</h2>
   </div>
 </section>

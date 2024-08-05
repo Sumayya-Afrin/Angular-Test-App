@@ -14,9 +14,6 @@ import { CurrencyPipe } from '@angular/common';
   styleUrl: './cart.component.scss',
 })
 export class CartComponent {
-  removeItem(arg0: any) {
-    throw new Error('Method not implemented.');
-  }
   cartItems: Array<{ product: IProducts; quantity: number }> = [];
   total: number = 0;
 
@@ -24,14 +21,22 @@ export class CartComponent {
 
   ngOnInit() {
     this.cartItems = this.productService.getCartItems();
-    console.log('calling');
+    console.log(this.cartItems);
     this.calculateTotal();
   }
 
   calculateTotal() {
     this.total = this.cartItems.reduce(
-      (acc, item) => acc + item.product.price * item.quantity,
+      (acc, item) => acc + Number(item.product.price) * item.quantity,
       0
     );
+
+    return this.total;
+  }
+
+  removeItem(productId: number) {
+    this.productService.removeItem(productId);
+    this.cartItems = this.productService.getCartItems();
+    this.calculateTotal();
   }
 }
