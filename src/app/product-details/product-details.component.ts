@@ -8,7 +8,7 @@ import { DomSanitizer, SafeUrl } from '@angular/platform-browser';
 @Component({
   selector: 'app-product-details',
   standalone: true,
-  imports: [],
+  imports: [ProductComponent],
   templateUrl: './product-details.component.html',
   styleUrl: './product-details.component.scss',
 })

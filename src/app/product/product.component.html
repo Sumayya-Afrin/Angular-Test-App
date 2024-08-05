@@ -17,7 +17,6 @@
             show ? "keyboard_arrow_up" : "keyboard_arrow_down"
           }}</mat-icon>
         </button>
-        <!-- <p class="movie-rating">⭐{{ movie.rating }}</p> -->
 
         <button
           mat-icon-button
@@ -34,5 +33,10 @@
       {{ products.description }}
     </p>
     }
+
+    <h2>{{ products.price }}</h2>
+    <button mat-button routerLink="/products/cart" (click)="AddingToCart()">
+      ➕Add Cart
+    </button>
   </mat-card-content>
 </mat-card>

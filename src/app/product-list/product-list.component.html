@@ -1,9 +1,9 @@
 <section class="movie-list-container">
   @if(isLoading){
   <h1>Loading ⌛</h1>
-  } @for (movie of productList; track $index){
+  } @for (products of productList; track $index){
 
-  <app-product></app-product>
+  <app-product [products]="products" [id]="products.id"> </app-product>
   }
 </section>
 

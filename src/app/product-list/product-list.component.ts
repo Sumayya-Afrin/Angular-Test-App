@@ -11,7 +11,7 @@ import { ProductComponent } from '../product/product.component';
   styleUrl: './product-list.component.scss',
 })
 export class ProductListComponent {
-  productList: any; // Model -> View
+  productList: any;
   isLoading: boolean = true;
   msg = '';
   constructor(public productService: ProductService) {}
