@@ -1,4 +1,6 @@
-import { Component } from '@angular/core';
+import { Component, Input } from '@angular/core';
+import { IProducts } from '../app.component';
+import { ProductService } from '../product.service';
 
 @Component({
   selector: 'app-add-cart',
@@ -7,4 +9,12 @@ import { Component } from '@angular/core';
   templateUrl: './add-cart.component.html',
   styleUrl: './add-cart.component.scss',
 })
-export class AddCartComponent {}
+export class AddCartComponent {
+  @Input() product!: IProducts;
+
+  constructor(private productservice: ProductService) {}
+
+  addToCart() {
+    //this.productservice.addToCart(this.product);
+  }
+}
