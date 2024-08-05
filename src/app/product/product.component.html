@@ -1,6 +1,6 @@
 <mat-card class="movie-container">
   <img
-    src="{{ products.imageurl }}"
+    src="{{ products.product_url }}"
     alt="{{ products.name }}-product-image"
     class="movie-poster"
   />
@@ -30,7 +30,7 @@
 
     @if(show) {
     <p class="product-summary">
-      {{ products.description }}
+      {{ products.product_description }}
     </p>
     }
 

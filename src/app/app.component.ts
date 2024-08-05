@@ -5,12 +5,12 @@ import { ProductListComponent } from './product-list/product-list.component';
 import { ProductDetailsComponent } from './product-details/product-details.component';
 
 export interface IProducts {
-  id: string;
   name: string;
-  description: string;
+  product_url: string;
   price: string;
-  imageurl: string;
+  product_description: string;
   quantity: string;
+  id: string;
 }
 
 @Component({
