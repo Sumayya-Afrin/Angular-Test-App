@@ -1,0 +1,7 @@
+<section class="movie-list-container">
+  @if(isLoading){
+  <h1>Loading ⌛</h1>
+  } @for (movie of productList; track $index){ }
+</section>
+
+<h1>{{ msg }}</h1>
