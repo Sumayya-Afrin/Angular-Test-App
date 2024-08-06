@@ -13,15 +13,23 @@
         <h2>{{ item.product.name }} ({{ item.quantity }})</h2>
         <p>
           {{ item.product.price }} x {{ item.quantity }} = ${{
-            item.product.price * item.quantity
+            item.product.price * item.quantity | currency
           }}
         </p>
-        <button (click)="removeItem(item.product.id)">Remove</button>
+        <button mat-icon-button (click)="removeItem(item.product.id)">
+          <mat-icon>delete</mat-icon>
+        </button>
       </div>
       }
     </div>
     <div class="cart-total">
       <h2>Total: ${{ total }}</h2>
+    </div>
+
+    <div class="buy-container">
+      <button mat-stroked-button style="color: black" (click)="buyItems()">
+        Buy Items
+      </button>
     </div>
     } @else {
     <div>
