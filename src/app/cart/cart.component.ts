@@ -29,7 +29,7 @@ export class CartComponent {
 
   calculateTotal() {
     this.total = this.cartItems.reduce(
-      (acc, item) => acc + Number(item.product.price) * item.quantity,
+      (acc, item) => acc + Number(item.product.price) * Number(item.quantity),
       0
     );
 
@@ -43,14 +43,8 @@ export class CartComponent {
     this.calculateTotal();
   }
 
-  async buyItems() {
-    try {
-      const orders = await this.productService.placeOrder();
-      console.log(orders);
-      this.router.navigate(['/orders'], { state: { orders } });
-      console.log('navigating');
-    } catch (error) {
-      console.error('Error while buying items:', error);
-    }
+  buyItems() {
+    const res = this.productService.placeOrder();
+    console.log(res);
   }
 }

@@ -9,8 +9,16 @@ export interface IProducts {
   product_url: string;
   price: number;
   product_description: string;
-  quantity: string;
+  quantity: number;
   id: number;
+}
+
+export interface IOrders {
+  order_id: number;
+  product_name: string;
+  image_url: string;
+  date: string;
+  quantity: number;
 }
 
 @Component({

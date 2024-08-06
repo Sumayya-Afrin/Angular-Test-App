@@ -13,7 +13,7 @@
         <h2>{{ item.product.name }} ({{ item.quantity }})</h2>
         <p>
           {{ item.product.price }} x {{ item.quantity }} = ${{
-            item.product.price * item.quantity | currency
+            item.product.price * item.quantity
           }}
         </p>
         <button mat-icon-button (click)="removeItem(item.product.id)">
